@@ -98,9 +98,9 @@ public class v1_8_R3SlimeNMS implements SlimeNMS {
         CustomWorldServer server = (CustomWorldServer) worldObject;
         String worldName = server.getWorldData().getName();
 
-        if (Bukkit.getWorld(worldName) != null) {
+        /* if (Bukkit.getWorld(worldName) != null) {
             throw new IllegalArgumentException("World " + worldName + " already exists! Maybe it's an outdated SlimeWorld object?");
-        }
+        } */
 
         LOGGER.info("Loading world " + worldName);
         long startTime = System.currentTimeMillis();
@@ -108,7 +108,7 @@ public class v1_8_R3SlimeNMS implements SlimeNMS {
         server.setReady(true);
         MinecraftServer mcServer = MinecraftServer.getServer();
 
-        mcServer.server.addWorld(server.getWorld());
+        // mcServer.server.addWorld(server.getWorld());
         mcServer.worlds.add(server);
 
         Bukkit.getPluginManager().callEvent(new WorldInitEvent(server.getWorld()));
